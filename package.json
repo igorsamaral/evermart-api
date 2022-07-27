@@ -10,9 +10,11 @@
     "test": "jest"
   },
   "dependencies": {
+    "@types/mongoose": "^5.11.97",
     "child-process": "^1.0.2",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "mongoose": "^6.5.0",
     "reflect-metadata": "^0.1.13",
     "typescript": "^4.3.5",
     "uuid": "^8.3.2"
