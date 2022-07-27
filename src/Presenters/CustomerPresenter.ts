@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { CustomerService } from '../Services/customer/CustomerService'
-import { XlsGeneratorService } from '../Services/export/XlsGeneratorService'
+import { CustomerService } from '../Services/Customer/CustomerService'
+import { XlsGeneratorService } from '../Services/Export/XlsGeneratorService'
 
 class CustomerPresenter {
     private customerService: CustomerService
