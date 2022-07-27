@@ -1,4 +1,5 @@
 import { Schema, model, connect } from 'mongoose';
+import { CustomerDTO } from './types/CustomerDTO';
 
 /** Validators */
 function isEmailValid(email: string) {
@@ -6,16 +7,7 @@ function isEmailValid(email: string) {
     return regexFilter.test(email);
 }
 
-interface CustomerInterface {
-    name: string
-    email: string
-    created_at: string
-    skills: string[]
-    cpf: string
-    rg: string
-}
-
-const customerSchema = new Schema<CustomerInterface>({
+const customerSchema = new Schema<CustomerDTO>({
     name: {
         type: String,
         required: [true, 'Invalid entries. Try again.'],
@@ -44,23 +36,25 @@ const customerSchema = new Schema<CustomerInterface>({
     },
 });
 
-const Customer = model<CustomerInterface>('Customer', customerSchema);
+const Customer = model<CustomerDTO>('Customer', customerSchema);
 
-run().catch(err => console.log(err));
+// run().catch(err => console.log(err));
 
-async function run() {
-    await connect('mongodb+srv://dbTest:@Mayk2022@cluster0.zrv8j.mongodb.net/test');
+// async function run() {
+//     await connect('mongodb+srv://dbTest:@Mayk2022@cluster0.zrv8j.mongodb.net/test');
 
-    const customer = new Customer({
-        name: 'Igor',
-        email: 'igr.amaral@gmail.com',
-        created_at: new Date(),
-        skills: ['backEnd', 'aws cloud'],
-        cpf: '111.222.333-44',
-        rg: '111222333'
-    });
+//     const customer = new Customer({
+//         name: 'Igor',
+//         email: 'igr.amaral@gmail.com',
+//         created_at: new Date(),
+//         skills: ['backEnd', 'aws cloud'],
+//         cpf: '111.222.333-44',
+//         rg: '111222333'
+//     });
 
-    await customer.save();
+//     await customer.save();
 
-    console.log(customer.email);
-}
+//     console.log(customer.email);
+// }
+
+export { Customer }
