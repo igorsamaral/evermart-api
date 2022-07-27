@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { XlsGeneratorService } from '../services/export/XlsGeneratorService'
 
-class CustomerController {
+class CustomerPresenter {
     async index(request: Request, response: Response) {
         return response.json({})
     }
@@ -15,4 +15,4 @@ class CustomerController {
     }
 }
 
-export { CustomerController }
+export { CustomerPresenter }
