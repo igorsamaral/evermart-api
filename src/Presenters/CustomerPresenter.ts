@@ -43,7 +43,9 @@ class CustomerPresenter {
             'created_at',
         ]
 
-        return response.json(xlsGeneratorService.run('Planilha de pessoas', columns, customers))
+        xlsGeneratorService.run('Planilha de pessoas', columns, customers)
+
+        return response.json({message: "Arquivo XLS gerado com sucesso"})
     }
 }
 
