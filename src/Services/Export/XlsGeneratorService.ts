@@ -1,8 +1,10 @@
 import xl from 'excel4node'
+import fs from 'fs'
 
 export default class XlsGeneratorService {
     run(worksheetName: string, columns: string[], rows: object[]) {
-        const timestamp = new Date().getTime();
+        const storageDir = 'storage'
+        const timestamp = new Date().getTime()
 
         const wb = new xl.Workbook()
         const ws = wb.addWorksheet(worksheetName)
@@ -24,6 +26,10 @@ export default class XlsGeneratorService {
             rowIndex++
         });
 
-        wb.write(timestamp + ".xlsx")
+        if (!fs.existsSync(storageDir)) {
+            fs.mkdirSync(storageDir);
+        }
+
+        wb.write(`${storageDir}/${timestamp}.xlsx`)
     }
 }
