@@ -1,9 +1,13 @@
+import Customer from "../../Entities/Customer"
 import { CustomerDTO } from "../../Entities/types/CustomerDTO"
 
-class CustomerService {
-    async create({ name, email, created_at, skills, cpf, rg } : CustomerDTO) {
-        return {}
+export default class CustomerService {
+    async getAll() {
+        return await Customer.find()
+    }
+
+    async create({ name, email, skills, cpf, rg } : CustomerDTO) {
+        const customer = Customer.create({ name, email, skills, cpf, rg })
+        return customer
     }
 }
-
-export { CustomerService }
