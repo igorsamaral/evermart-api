@@ -13,7 +13,6 @@ const CustomerSchema: Schema = new Schema({
     rg: { type: String, required: true },
     created_at: { type: Date, required: true, get: (date: Date) => timeSince(date) },
 }, {
-    timestamps: true,
     toJSON: { getters: true, virtuals: true },
     versionKey: false
 });
