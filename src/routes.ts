@@ -5,9 +5,9 @@ const router = Router()
 
 const customerPresenter = new CustomerPresenter()
 
-router.get("/customers", customerPresenter.index)
-router.post("/customers", customerPresenter.store)
+router.get("/api/customers", customerPresenter.index)
+router.post("/api/customers", customerPresenter.store)
 
-router.get("/generate-xls/customers", customerPresenter.generateXls)
+router.get("/api/generate-xls/customers", customerPresenter.generateXls)
 
 export { router }
