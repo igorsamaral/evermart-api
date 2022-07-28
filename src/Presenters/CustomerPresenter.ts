@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import CustomerService from '../Services/Customer/CustomerService';
-import { XlsGeneratorService } from '../Services/Export/XlsGeneratorService'
+import XlsGeneratorService from '../Services/Export/XlsGeneratorService'
 
 class CustomerPresenter {
     async index(request: Request, response: Response) {
@@ -28,7 +28,22 @@ class CustomerPresenter {
     }
 
     async generateXls(request: Request, response: Response) {
-        return response.json({})
+        const xlsGeneratorService = new XlsGeneratorService()
+        const customerService = new CustomerService()
+
+        const customers = await customerService.getAll()
+
+        const columns = [
+            'id',
+            'name',
+            'email',
+            'skills',
+            'cpf',
+            'rg',
+            'created_at',
+        ]
+
+        return response.json(xlsGeneratorService.run('Planilha de pessoas', columns, customers))
     }
 }
 
