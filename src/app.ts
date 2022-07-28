@@ -3,6 +3,9 @@ import express, { Request, Response, NextFunction, response } from "express"
 import "express-async-errors"
 
 import { router } from "./routes"
+import { mongooseConnection } from "./Infra/Database/MongooseConnection"
+
+mongooseConnection()
 
 const app = express()
 
