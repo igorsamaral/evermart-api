@@ -7,7 +7,9 @@ export default class CustomerService {
     }
 
     async create({ name, email, skills, cpf, rg } : CustomerDTO) {
-        const customer = Customer.create({ name, email, skills, cpf, rg })
+        const created_at = (new Date(Date.now())).toISOString();
+
+        const customer = Customer.create({ name, email, skills, created_at, cpf, rg })
         return customer
     }
 }
