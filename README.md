@@ -62,6 +62,6 @@ HTTP: GET
 
 Gerar XLS
 ```
-HTTP: POST
+HTTP: GET
 {baseUrl}/api/generate-xls/customers
 ```
